@@ -41,7 +41,6 @@ parser.add_argument("--gpu_id", help="id of gpu", type=int, default = 0)
 parser.add_argument("--pre_model", help="path to trained model checkpoint", type=str, default='None')
 parser.add_argument("--test_mode", help="whether we only test the model", default=False, action='store_true')
 parser.add_argument("--classify", help="whether we select classification task", default=False, action='store_true')
-#args = parser.parse_args(['--d_graph_layer', '256', '--n_graph_layer', '4', '--edge_dim', '6','--dropout_rate', '0.3','--data_path','apo_tmp/pdbbind_coor2','--output','./output-apo.txt','--pred_output','./prediction-apo.txt','--batch_size','64','--processed','processed', '--graph_pooling','sum','--pre_model','apo_tmp/pdbbind_coor2/processed/pred_2_069.pt', '--test_mode', '--apo']) # 
 args = parser.parse_args()
 
 SPACE = 100

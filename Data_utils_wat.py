@@ -248,6 +248,7 @@ def file_to_gt_pose(groundtruth_dir, groundtruth_suffix, pdb, Atoms, Bonds, pock
         ss = st.split()
         if (ss[0] == 'ATOM'):
             name, x, y, z, atom, idx = line_to_coor(st, 'protein_atom')
+            #print("water",name, x, y, z, atom, idx)
             if (atom != 'H'):
                 water_gt.append((name, x, y, z, atom, idx, 'O;2;0;2;0;0'))
                 if name == 'O' and distance.euclidean([x, y, z], [cx, cy, cz]) < pocket_th:

@@ -18,7 +18,6 @@ parser.add_argument("--end_iter", help="create training data till which random s
 parser.add_argument("--thread_num", help="num of threads to creating dataset", type=int, default = 4)
 parser.add_argument("--use_new_data", help="create data for predicting 3D coordinate", default=False, action='store_true')
 parser.add_argument("--screen_data", help="If we generate data for screen", default=False, action='store_true')
-parser.add_argument("--pdbbind_dir", help="dir to the pdbbind dataset output", type=str, default='data/pdbbind_output_s')
 parser.add_argument("--dataset_file", help="the path to label files", type=str, default='data/pdbbind')
 parser.add_argument("--input_list", help="list of train/test pdbs", type=str, default='data/pdbbind/pdb_list_')
 parser.add_argument("--groundtruth_dir", help="the path to the ground truth pose pdbbind files", type=str, default='data/pdbbind/')
@@ -30,7 +29,6 @@ args = parser.parse_args()
 def read_pdbbind_to_disk(input_list,
                         groundtruth_dir,
                         groundtruth_suffix,
-                        pdbbind_dir,
                         output_dir,
                         apo,
                         tile_size,
@@ -58,7 +56,7 @@ def read_pdbbind_to_disk(input_list,
 
         pdb = pdb_list[i]
         print('Running：',pdb)    
-        print(apo)
+        
         try:
             protein_gt, ligand_gt, edge_gt, water_gt = file_to_gt_pose(groundtruth_dir, groundtruth_suffix, pdb, Atoms, Bonds, pocket_th)
             #(x, y, z), (name, x, y, z, atom, idx), (name, x, y, z, atom), (x, y)
@@ -70,7 +68,7 @@ def read_pdbbind_to_disk(input_list,
                 print(f"P:{len(protein_gt)} L:{len(ligand_gt)} W:{len(water_gt)}")
                 print([line[-1] for line in protein_gt])
             if apo:
-                
+                print("apo state")
                 water0_gt = get_wat0_feature(groundtruth_dir, groundtruth_suffix, pdb, cut=4.0)
                 print('yes=====')
                 num_nodes_apo = gen_3D_wat_atomwise(water0_gt, bond_th, f'{output_dir}/{pdb}')
@@ -97,7 +95,7 @@ def mycopyfile(srcfile, dstpath):
             shutil.move(srcfile, dstpath)  
 
 
-def srand_data_load_save_coord2_thread(input_list, groundtruth_dir, pdbbind_dir, output_dir, apo, bond_th, pocket_th, thread_num, thread_id):
+def srand_data_load_save_coord2_thread(input_list, groundtruth_dir,  output_dir, apo, bond_th, pocket_th, thread_num, thread_id):
     tile_size = 1024
     output_dir_tmp = output_dir + '_tmp_' + str(thread_id)
     if not os.path.isdir(output_dir_tmp):
@@ -119,7 +117,7 @@ def srand_data_load_save_coord2_thread(input_list, groundtruth_dir, pdbbind_dir,
         read_pdbbind_to_disk(input_list_filename,
                              groundtruth_dir,
                              groundtruth_suffix,
-                             pdbbind_dir,
+                             
                              output_dir_tmp+'/' + split,
                              apo,
                              tile_size,
@@ -130,7 +128,7 @@ def srand_data_load_save_coord2_thread(input_list, groundtruth_dir, pdbbind_dir,
 
 
  
-def srand_data_load_save_coord2(input_list, groundtruth_dir, pdbbind_dir, output_dir, apo, bond_th, pocket_th, iteration, thread_num = 1):
+def srand_data_load_save_coord2(input_list, groundtruth_dir,  output_dir, apo, bond_th, pocket_th,  thread_num = 1):
     tile_size = 1024
     print("srand_data_load_save_coord2")
 
@@ -144,13 +142,13 @@ def srand_data_load_save_coord2(input_list, groundtruth_dir, pdbbind_dir, output
     print("data dir created!")
     # for i in range(4,5):
     if thread_num == 1:
-        srand_data_load_save_coord2_thread(input_list, groundtruth_dir, pdbbind_dir, output_dir, apo, bond_th, pocket_th, iteration, 1, 0)
+        srand_data_load_save_coord2_thread(input_list, groundtruth_dir,  output_dir, apo, bond_th, pocket_th,  1, 0)
     else:
         p_list = []
 
         for thread_id in range(thread_num):
             p = mp.Process(target=srand_data_load_save_coord2_thread,
-                           args=(input_list, groundtruth_dir, pdbbind_dir, output_dir, apo, bond_th, pocket_th, iteration, thread_num, thread_id))
+                           args=(input_list, groundtruth_dir,  output_dir, apo, bond_th, pocket_th,  thread_num, thread_id))
             p.start()
             p_list.append(p)
  
@@ -193,7 +191,6 @@ if __name__ == "__main__":
     apo = args.apo
     #print(apo)
     dataset_file = args.dataset_file
-    pdbbind_dir = args.pdbbind_dir
     
     #groundtruth_dir = '/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/pdbbind/'
     groundtruth_dir = args.groundtruth_dir
@@ -211,7 +208,7 @@ if __name__ == "__main__":
 
     if use_new:    
 
-        srand_data_load_save_coord2(input_list, groundtruth_dir, pdbbind_dir, output_dir, apo, bond_th, pocket_th, thread_num = thread_num)
+        srand_data_load_save_coord2(input_list, groundtruth_dir,  output_dir, apo, bond_th, pocket_th, thread_num = thread_num)
 
     else:
         print(f"Move data to {output_dir}/raw/")
