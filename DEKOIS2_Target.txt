@@ -1,0 +1,82 @@
+name                  target
+11betaHSD1            11-beta-Hydroxysteroid Dehydrogenase 1 
+17betaHSD1            17-beta-Hydroxysteroid Dehydrogenase 1
+A2A                   Adenosine A2A receptor
+ACE                   Angiotensin-I-converting enzyme
+ACE2                  Angiotensin-converting enzyme 2 
+ACHE                  Acetylcholinesterase
+ADAM17                TNF Alpha Converting Enzyme
+ADRB2                 Beta-2 adrenergic receptor
+AKT1                  RAC-alpha serine/threonine-protein kinase(PKB)
+ALR2                  Aldose reductase
+AR                    Androgen Receptor
+AURKA                 Aurora A kinase
+AURKB                 Aurora B kinase
+BCL2                  Apoptosies Regulator B-cell lymphoma 2
+BRAF                  Serine/threonine-protein kinase B-Raf
+CATL                  Cathepsin L
+CDK2                  Cyclin-dependent kinase 2
+COX1                  Cyclooxygenase-1
+COX2                  Cyclooxygenase-2
+CTSK                  Cathepsin K
+CYP2A6                Cytochrome P450 2A6
+DHFR                  Dihydrofolate reductase
+EGFR                  Epidermal growth factor receptor
+EPHB4                 Ephrin type-B receptor 4
+ERBB2                 Human Epidermal growth factor Receptor 2
+ER-beta               Estrogen receptor beta
+FGFR1                 Fibroblast growth factor receptor 1
+FKBP1A                Peptidyl-prolyl cis-trans isomerase
+FXA                   Factor X (prothrombinase)
+GBA                   Glucocerebrosidase(Acid beta-Glucosidase)
+GR                    Glucocorticoid receptor
+GSK3B                 Glycogen synthase kinase 3 beta
+HDAC2                 Histone Deacetylase 2
+HDAC8                 Histone Deacetylase 8
+HIV1PR                HIV-1 protease
+HIV1RT                HIV reverse transcriptase
+HMGR                  HMG-CoA reductase
+HSP90                 heat shock protein 90
+IGF1R                 Insulin-like growth factor I receptor
+INHA                  Enoyl ACP Reductase
+ITK                   IL2-inducible T-cell kinase
+JAK3                  Janus Kinase 3
+JNK1                  Mitogen-Activated Protein Kinase 8
+JNK2                  Mitogen-activated protein kinase 9
+JNK3                  Mitogen-Activated Protein Kinase 10
+KIF11                 kinesin family member 11
+LCK                   Lymphocyte-specific protein tyrosine kinase
+MDM2                  p53-Binding Protein MDM2
+MK2                   MAPK-activated Protein Kinase-2
+MMP2                  Matrix Metalloproteinase-2
+NA                    Neuraminidase A
+P38-alpha             P38 mitogen-activated protein kinases
+PARP-1                PARP-1 (Poly [ADP-ribose] polymerase 1
+PDE4b                 Phosphodiesterase Type 4
+PDE5                  cGMP-specific phosphodiesterase type 5
+PDK1                  Pyruvate dehydrogenase kinase, isozyme 1
+PI3Kg                 Phosphoinositid-3-Kinase gamma
+PIM-1                 Serine/threonine-protein kinase pim-1
+PIM-2                 Serine/threonine-protein kinase pim-2
+PNP                   Purine nucleoside phosphorylase
+PPARa                 Peroxisome proliferator-activated receptor alpha
+PPARg                 Peroxisome proliferator-activated receptor gamma
+PR                    Progesterone Receptor
+PRKCQ                 Protein Kinase C theta
+PYGL-in               Glycogenphosphorylase (inner dimer site)
+PYGL-out              Glycogenphosphorylase (outer dimer site)
+QPCT                  Glutaminyl-peptide cyclotransferase
+ROCK1                 Rho-associated protein kinase-1
+RXRa                  Retinoid X receptor alpha
+SARS-HCoV             SARS Coronavirus 3C-like Protease
+SIRT2                 NAD-Dependent Deacetylase Sirtuin-2
+SRC                   Proto-oncogene tyrosine-protein kinase Src
+THROMBIN              Thrombin
+TIE2                  Angiopoietin-1 receptor
+TK                    Thymidine kinase
+TP                    Thymidine Phosphorylase
+TPA                   Tissue plasminogen activator
+TS                    Thymidylate Synthase
+uPA                   Urokinase Plasminogen activator
+VEGFR1                Vascular endothelial growth factor rec. 1
+VEGFR2                Vascular endothelial growth factor rec. 2
